@@ -433,16 +433,8 @@ var handerMaxCourses = maxCourses.map(function (item) {
 });
 console.log(handerMaxCourses);
 
-import Mouse from './mouse';
-
-function Cat() {
-  this.stomach = [];
-}
-
-Cat.prototype.eat = function (mouse) {
-  this.stomach.push(mouse);
-  mouse.die();
-};
+import Mouse from "./mouse.js";
+import Cat from "./cat.js";
 
 var jerry = new Mouse("orange");
 var mickey = new Mouse("black");
@@ -455,4 +447,56 @@ tom.eat(jerry);
 tom.eat(mickey);
 console.log(tom);
 
+// Ví dụ về if - else: Tung đồng xu
+function tossACoin() {
+  var value = Math.random();
+  if (value < 0.5) {
+    console.log("Mặt sấp");
+  } else {
+    console.log("Mặt ngửa");
+  }
+}
+tossACoin();
 
+// Ví dụ 2: bài toán đưa ra câu trả lời về việc gặp 1 người lạ
+function shouldIDateHer() {
+  var value = Math.random();
+  if (value < 0.5) {
+    console.log("Yes, of course");
+  } else {
+    console.log("No, she has a boyfriend");
+  }
+}
+shouldIDateHer();
+
+// Ví dụ 3: máy đếm tiền và phát hiện tiền giả
+function countBills(bills) {
+  var total = 0;
+  for (var bill of bills) {
+    if (!bill.fake) {
+      total += bill.value;
+    } else {
+      console.log('Fake bill', bill);
+      break;
+    }
+  }
+  return total;
+}
+
+var bills = [
+  {
+    value: 10000,
+  },
+  {
+    value: 20000,
+  },
+  {
+    value: 20000,
+    fake: true,
+  },
+  {
+    value: 500000,
+  },
+];
+var total = countBills(bills);
+console.log(total);

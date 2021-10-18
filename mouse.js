@@ -1,10 +1,10 @@
 function Mouse(color) {
-    this.color = color;
-    this.dead = false;
+  this.color = color;
+  this.dead = false;
 };
 
-Mouse.prototype.die = function() {
-    this.dead = true
+Mouse.prototype.die = function () {
+  this.dead = true;
 };
 
-module.export = Mouse;
+export default Mouse;
