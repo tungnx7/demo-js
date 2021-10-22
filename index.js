@@ -458,6 +458,14 @@ function tossACoin() {
 }
 tossACoin();
 
+// Ví dụ về toán tử 3 ngôi
+function tossCoin() {
+  var value = Math.random();
+  var result = value < 0.5 ? "Mặt sấp" : "Mặt ngửa";
+  console.log(result);
+}
+tossCoin();
+
 // Ví dụ 2: bài toán đưa ra câu trả lời về việc gặp 1 người lạ
 function shouldIDateHer() {
   var value = Math.random();
@@ -476,7 +484,7 @@ function countBills(bills) {
     if (!bill.fake) {
       total += bill.value;
     } else {
-      console.log('Fake bill', bill);
+      console.log("Fake bill", bill);
       break;
     }
   }
@@ -500,3 +508,143 @@ var bills = [
 ];
 var total = countBills(bills);
 console.log(total);
+
+// Bài toán: Vé xe buýt sẽ được giảm 20% cho học sinh dưới 18 tuổi, giảm 10% dành cho người già trên 60 tuổi.
+function getTicketFee(person) {
+  var basePrice = 8000;
+  if (person.age <= 18) {
+    return basePrice * 0.8;
+  } else if (person.age >= 60) {
+    return basePrice * 0.9;
+  } else {
+    return basePrice;
+  }
+}
+var tour = {
+  age: 18,
+};
+var fee = getTicketFee(tour);
+console.log(fee);
+
+// Bài toán: Cửa hàng cắt tóc: với khách hàng là nữ sẽ được giảm 20%, nam giới được giảm 10% còn giới tính khác không được giảm.
+function checkGender(person) {
+  var priceOrigin = 100000;
+  if (person.gender === "female") {
+    return priceOrigin * 0.8;
+  } else if (person.gender === "male") {
+    return priceOrigin * 0.9;
+  } else {
+    return priceOrigin;
+  }
+}
+
+// var bills = [
+//   {
+//     gender: 'female',
+//     price: 400000
+//   },
+//   {
+//     gender: 'male',
+//     price: 50000
+//   },
+//   {
+//     gender: '',
+//     price: 250000
+//   },
+// ]
+// Chưa tìm được lỗi sai khi dùng array
+var people = {
+  gender: "female",
+};
+var fee = checkGender(people);
+console.log(fee);
+
+// Bài toán nạp thẻ game: nạp thẻ garena từ 200.000VNĐ trở lên sẽ được tặng thêm 80% giá trị thẻ nạp, 100.000VNĐ được tặng 70% giá trị thẻ nạp và các giá trị thấp hơn được tặng 60% giá trị thẻ nạp.
+function bonusCard(person) {
+  var rp = person.card;
+  if (person.card >= 200000) {
+    return rp + rp * 0.8;
+  } else if (person.card <= 100000) {
+    return rp + rp * 0.6;
+  } else {
+    return rp + rp * 0.7;
+  }
+}
+
+var user = {
+  card: 200000,
+};
+var coin = bonusCard(user);
+console.log(coin);
+
+// Baif toán: Bạn thanh toán tại một nhà hàng sẽ được áp dụng giảm giá theo thẻ thành viên với 4 hàng mức như sau:
+/**bronze: 2%
+ * silver: 5%
+ * gold: 8%
+ * diamond: 10%
+ */
+var memberCard = {
+  tier: "gold",
+};
+
+function getTotal(price, card) {
+  var discountRate;
+
+  // if (card.tier === 'bronze') {
+  //   discountRate = 0.02;
+  // } else if (card.tier === 'silver') {
+  //   discountRate = 0.05;
+  // } else if (card.tier === 'gold') {
+  //   discountRate = 0.08;
+  // } else {
+  //   discountRate = 0.1;
+  // }
+  switch (card.tier) {
+    case "bronze":
+      discountRate = 0.02;
+      break;
+    case "silver":
+      discountRate = 0.05;
+      break;
+    case "gold":
+      discountRate = 0.08;
+      break;
+    case "diamond":
+      discountRate = 0.1;
+      break;
+  }
+
+  return price * (1 - discountRate);
+}
+
+var total = getTotal(500000, memberCard);
+console.log(total);
+
+// Ví dụ switch - case: đèn tín hiệu giao thông có 3 màu green, red and yellow. Với mỗi tín hiệu đèn sẽ có mỗi hiệu lệnh khác nhau
+var trafficLight = "green";
+
+function goOrNot(lightValue) {
+  switch (lightValue) {
+    case "green":
+      console.log("Go");
+      break;
+    case "yellow":
+      console.log("Slow your speed");
+      break;
+    case "red":
+      console.log("Stop");
+      break;
+      // Chưa tìm được lỗi sai
+      // if(lightValue === "green") {
+        //   console.log("Go")
+        // } else if (lightValue === "yellow") {
+          //   console.log("Slow your speed")
+          // } else {
+            //   console.log("Stop")
+            // }
+            // }
+          }
+        }    
+
+var command = goOrNot(trafficLight);
+console.log(command);
