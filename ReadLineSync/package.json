@@ -1,0 +1,22 @@
+{
+  "name": "demo_js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tungnx7/demo-js.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tungnx7/demo-js/issues"
+  },
+  "homepage": "https://github.com/tungnx7/demo-js#readme",
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  }
+}
