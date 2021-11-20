@@ -1,1 +1,11 @@
-[{"name":"Ember","age":32,"national":"American","level":"junior"}]
+[
+  { "name": "Ember", "age": 32, "national": "American", "level": "junior" },
+  {
+    "name": "Shael",
+    "age": 25,
+    "national": "South American",
+    "level": "fesher"
+  },
+  { "name": "Dave", "age": 28, "national": "England", "level": "midle" },
+  { "name": "Murray", "age": 29, "national": "Canada", "level": "senior" }
+]

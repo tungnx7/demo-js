@@ -2,7 +2,7 @@ var readlineSync = require("readline-sync");
 var fs = require("fs");
 
 function main() {
-    loadData()
+  loadData();
   showMenu();
 }
 main();
@@ -32,35 +32,39 @@ function showMenu() {
   }
 }
 
-
 var teacheres = [];
 
 function loadData() {
-    var fileData = fs.readFileSync('data.json', {encoding: 'utf-8'});
-    teacheres = JSON.parse(fileData);
+  var fileData = fs.readFileSync("data.json", { encoding: "utf-8" });
+  teacheres = JSON.parse(fileData);
 }
 
 function showAllTeachers() {
-    for (teacher of teacheres) {
-        console.log(teacher.name + `:`, teacher.age, teacher.national, teacher.level)
-    }
+  for (teacher of teacheres) {
+    console.log(
+      teacher.name + `:`,
+      teacher.age,
+      teacher.national,
+      teacher.level
+    );
+  }
 }
 
 function showCreateTeacher() {
-    var name = readlineSync.question('Name: ');
-    var age = readlineSync.question('Age: ');
-    var national = readlineSync.question('National: ');
-    var level = readlineSync.question('Level: ');
-    var teacher = {
-        name: name,
-        age: parseInt(age),
-        national: national,
-        level: level
-    }
-    teacheres.push(teacher)
+  var name = readlineSync.question("Name: ");
+  var age = readlineSync.question("Age: ");
+  var national = readlineSync.question("National: ");
+  var level = readlineSync.question("Level: ");
+  var teacher = {
+    name: name,
+    age: parseInt(age),
+    national: national,
+    level: level,
+  };
+  teacheres.push(teacher);
 }
 
 function saveAndExit() {
-    var content = JSON.stringify(teacheres);
-    fs.writeFileSync('data.json', content, {encoding: 'utf-8'})
+  var content = JSON.stringify(teacheres);
+  fs.writeFileSync("data.json", content, { encoding: "utf-8" });
 }
