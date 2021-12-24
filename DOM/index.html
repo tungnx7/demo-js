@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=h1.My, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=h1.My, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    <h1 id='h1'>TODO list</h1>
+  </head>
+  <body>
+    <!-- <h1 id='h1'>TODO list</h1> -->
+    <input id="new-item" type="text" />
+    <button id="add-btn">Add</button>
     <ul id="todo-list">
-        <!-- <li>Haircut</li>
+      <!-- <li>Haircut</li>
         <li>Lunch with Sora</li>
         <li>Dinner with Maria</li> -->
     </ul>
@@ -19,27 +21,38 @@
         <ul>Go to bed</ul>
     </ul> -->
     <script type="text/javascript">
-        // var todoList = document.getElementById('todo-list');
-        // var newTodo = document.createElement('li');
-        // newTodo.textContent = 'cook tomorrow lunch';
-        // todoList.appendChild(newTodo);
-        // var newTodo2 = document.createElement('li');
-        // newTodo2.textContent = 'drink medicine before bed';
-        // todoList.appendChild(newTodo2);
-        // var notice = document.createElement('p');
-        // notice.textContent = 'note everything you want to make in the future';
-        // var h1 = document.getElementById('h1');
-        // h1.appendChild(notice);
-        var todoList = [
-            'Haircut',
-            'Lunch with Sora',
-            'Dinner with Maria'
-        ];
-        var htmlList = document.getElementById('todo-list');
+      // var todoList = document.getElementById('todo-list');
+      // var newTodo = document.createElement('li');
+      // newTodo.textContent = 'cook tomorrow lunch';
+      // todoList.appendChild(newTodo);
+      // var newTodo2 = document.createElement('li');
+      // newTodo2.textContent = 'drink medicine before bed';
+      // todoList.appendChild(newTodo2);
+      // var notice = document.createElement('p');
+      // notice.textContent = 'note everything you want to make in the future';
+      // var h1 = document.getElementById('h1');
+      // h1.appendChild(notice);
+      var todoList = ["Haircut", "Lunch with Sora", "Dinner with Maria"];
+
+      var addBtn = document.getElementById('add-btn');
+      addBtn.addEventListener('click', addItem)
+
+      function addItem() {
+        var input = document.getElementById("new-item"); //Gọi đến ô input
+        var newItem = input.value; //Lấy những giá trị người dùng nhập trong ô input
+        todoList.push(newItem); //Đẩy những giá trị mới này vào cuối của mảng todoList
+        render(); //Hiện thị ra
+        input.value = ""; //clear lại ô input
+      }
+
+      function render() {
+        var htmlList = document.getElementById("todo-list"); //Gọi đến ul todo-list
         var content = todoList.map((item) => {
-            return '<li>' + item + '</li>';
-        });
-        htmlList.innerHTML = content.join('');
+          return "<li>" + item + "</li>";
+        }); //biến những item từ dạng chuỗi trở thành dạng li
+        htmlList.innerHTML = content.join(""); //Nối những li mới nhận được với nhau
+      }
+      render();
     </script>
-</body>
+  </body>
 </html>
