@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>CÔNG VIỆC CẦN LÀM</h1>
+    <input type="text" id='new-input'>
+    <button id='add-btn'>THÊM</button>
+    <ul id='todo-list'>
+
+    </ul>
+    
+    <script type="text/javascript">
+        var todoList = [
+            'Rửa xe',
+            'Hạ cam',
+            'Giặt quần áo'
+        ]
+
+        function render() {
+            var htmlList = document.getElementById('todo-list');
+            var content = todoList.map((item) => {
+                return '<li>' + item + '</li>'
+            })
+            htmlList.innerHTML = content.join('');
+        }
+        render();
+
+        function addItem() {
+            var input = document.getElementById('new-input');
+            var newItem = input.value;
+            todoList.push(newItem);
+            render();
+            input.value = '';
+        }
+
+        var addBtn = document.getElementById('add-btn');
+        addBtn.addEventListener('click', addItem);
+    </script>
+</body>
+</html>
